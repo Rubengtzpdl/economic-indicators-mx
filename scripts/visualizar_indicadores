@@ -1,0 +1,28 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_excel("data/raw/indicadores_mx.xlsx")
+
+# Estilo
+sns.set_theme(style="whitegrid")
+fig, axes = plt.subplots(2, 2, figsize=(14, 10))
+fig.suptitle("Indicadores Económicos de México 2020-2024", fontsize=16, fontweight="bold")
+
+indicadores = ["inflacion", "pib_crecimiento", "desempleo", "tipo_cambio"]
+titulos = ["Inflación Anual (%)", "Crecimiento PIB (%)", "Desempleo (%)", "Tipo de Cambio MXN/USD"]
+colores = ["#E74C3C", "#2ECC71", "#F39C12", "#3498DB"]
+
+for i, (ind, titulo, color) in enumerate(zip(indicadores, titulos, colores)):
+    ax = axes[i//2][i%2]
+    datos = df[df["indicador"] == ind].sort_values("anio")
+    ax.plot(datos["anio"], datos["valor"], marker="o", color=color, linewidth=2.5, markersize=8)
+    ax.fill_between(datos["anio"], datos["valor"], alpha=0.1, color=color)
+    ax.set_title(titulo, fontweight="bold")
+    ax.set_xlabel("Año")
+    ax.set_ylabel("Valor")
+
+plt.tight_layout()
+plt.savefig("reports/indicadores_economicos_mx.png", dpi=150)
+plt.show()
+print("✅ Gráfica guardada en reports/")
