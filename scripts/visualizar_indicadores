@@ -25,4 +25,4 @@ for i, (ind, titulo, color) in enumerate(zip(indicadores, titulos, colores)):
 plt.tight_layout()
 plt.savefig("reports/indicadores_economicos_mx.png", dpi=150)
 plt.show()
-print("✅ Gráfica guardada en reports/")
+print("Gráfica guardada en reports/")
