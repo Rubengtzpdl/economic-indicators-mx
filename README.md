@@ -1,4 +1,4 @@
-# Economic Indicators MX 📊
+# Economic Indicators MX 
 
 Automated scraper that extracts real economic indicators from the World Bank API 
 and generates visualizations for Mexico's key financial metrics.
@@ -20,4 +20,4 @@ and generates visualizations for Mexico's key financial metrics.
 ![Indicadores Económicos México](reports/indicadores_economicos_mx.png)
 
 ## Status
-✅ Complete
+Complete
