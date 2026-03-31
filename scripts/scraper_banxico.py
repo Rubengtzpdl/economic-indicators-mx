@@ -5,7 +5,7 @@ import urllib3
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-print("Extrayendo indicadores económicos de México...")
+print("Extrayendo indicadores económicos de México")
 
 # API del Banco Mundial - no requiere token
 INDICADORES = {
@@ -32,12 +32,12 @@ for nombre, codigo in INDICADORES.items():
                     "valor": round(r["value"], 2),
                     "anio": r["date"]
                 })
-        print(f"✅ {nombre}: OK")
+        print(f" {nombre}: OK")
     except Exception as e:
-        print(f"❌ {nombre}: Error - {e}")
+        print(f" {nombre}: Error - {e}")
 
 df = pd.DataFrame(resultados)
 df["fecha_extraccion"] = datetime.now().strftime("%Y-%m-%d %H:%M")
 df.to_excel("data/raw/indicadores_mx.xlsx", index=False)
-print("\n✅ Datos guardados en data/raw/indicadores_mx.xlsx")
+print("\n Datos guardados en data/raw/indicadores_mx.xlsx")
 print(df.head(10))
