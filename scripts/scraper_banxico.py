@@ -7,7 +7,6 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 print("Extrayendo indicadores económicos de México")
 
-# API del Banco Mundial - no requiere token
 INDICADORES = {
     "inflacion": "FP.CPI.TOTL.ZG",
     "pib_crecimiento": "NY.GDP.MKTP.KD.ZG",
